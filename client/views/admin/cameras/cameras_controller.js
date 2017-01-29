@@ -35,7 +35,7 @@ this.AdminCamerasController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			admin_cameras: Cameras.find({}, {})
+			admin_cameras: Cameras.find({}, {$orderby:{displayOrder:1}})
 		};
 		
 

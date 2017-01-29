@@ -20,7 +20,9 @@ var HomePrivateViewItems = function(cursor) {
 	if(!cursor) {
 		return [];
 	}
-	return cursor.fetch();
+	console.log(cursor);
+	sort = _.sortBy(cursor.fetch(),"displayOrder");
+	return sort;
 };
 
 Template.HomePrivateView.rendered = function() {

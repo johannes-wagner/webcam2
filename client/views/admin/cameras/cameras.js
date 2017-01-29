@@ -31,7 +31,7 @@ var AdminCamerasViewItems = function(cursor) {
 	} else {
 		searchString = searchString.replace(".", "\\.");
 		var regEx = new RegExp(searchString, "i");
-		var searchFields = ["name", "desc"];
+		var searchFields = ["name", "desc", "displayOrder"];
 		filtered = _.filter(raw, function(item) {
 			var match = false;
 			_.each(searchFields, function(field) {
@@ -249,19 +249,19 @@ Template.AdminCamerasViewTableItems.events({
 		e.preventDefault();
 		var me = this;
 		bootbox.dialog({
-			message: "Delete? Are you sure?",
-			title: "Delete",
+			message: "Kamera löschen?",
+			title: "Löschen bestätigen",
 			animate: false,
 			buttons: {
 				success: {
-					label: "Yes",
+					label: "Ja",
 					className: "btn-success",
 					callback: function() {
 						Cameras.remove({ _id: me._id });
 					}
 				},
 				danger: {
-					label: "No",
+					label: "Nein",
 					className: "btn-default"
 				}
 			}

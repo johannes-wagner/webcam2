@@ -36,7 +36,7 @@ this.AdminUsersEditController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			admin_cameras: Cameras.find({}, {}),
+			admin_cameras: Cameras.find({}, {$orderby:{displayOrder:1}}),
 			admin_user: Users.findOne({_id:this.params.userId}, {})
 		};
 		

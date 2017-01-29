@@ -247,19 +247,25 @@ Template.AdminUsersViewTableItems.events({
 		e.preventDefault();
 		var me = this;
 		bootbox.dialog({
-			message: "Delete? Are you sure?",
-			title: "Delete",
+			message: "Benutzer löschen?",
+			title: "Löschen bestätigen",
 			animate: false,
 			buttons: {
 				success: {
-					label: "Yes",
+					label: "Ja",
 					className: "btn-success",
 					callback: function() {
-						Users.remove({ _id: me._id });
+						 Meteor.call('deleteUser',me._id,function(error,result){
+							if(error){
+							//@TODO error handling
+									bootbox.alert(error.reason);
+							}else{
+							}
+						});
 					}
 				},
 				danger: {
-					label: "No",
+					label: "Nein",
 					className: "btn-default"
 				}
 			}
