@@ -1,0 +1,50 @@
+<template name="HomePrivate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> HomePrivateView}}
+	</div>
+</template>
+
+<template name="HomePrivateView">
+	<div id="home-private-view" class="">
+		<h2 id="component-title">
+			Willkommen {{userFullName}}.
+		</h2>
+		{{#if isNotEmpty}}			
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> HomePrivateViewTable}} {{/if}}
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Keine Kameras freigeschaltet - Bitte bei einem Admin melden
+		</div>
+		{{/if}}
+	</div>
+</template>
+
+<template name="HomePrivateViewTable">
+	<div class="webcams-container">
+		{{#each tableItems}} {{> HomePrivateViewTableItems}} {{/each}}	
+    </div>
+</template>
+
+<template name="HomePrivateViewTableItems">
+	 <div class="webcams">
+                <canvas id="{{name}}" class="webcams">
+                <p>
+                        Please use a browser that supports the Canvas Element, like
+                        <a href="http://www.google.com/chrome">Chrome</a>,
+                        <a href="http://www.mozilla.com/firefox/">Firefox</a>,
+                        <a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10
+                </p>
+                </canvas>
+                <p>{{desc}}</p>
+        </div>
+
+</template>
+

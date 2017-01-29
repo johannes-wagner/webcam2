@@ -1,0 +1,69 @@
+<template name="AdminCamerasEdit">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<div id="page_menu" class="pull-right">
+				</div>
+			</div>
+		</div>
+		{{> AdminCamerasEditEditForm}}
+	</div>
+</template>
+
+<template name="AdminCamerasEditEditForm">
+	<div id="admin-cameras-edit-edit-form" class="">
+		<h2 id="component-title">
+			Kamera bearbeiten
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-name">
+				<label for="name">
+					Interner Name
+				</label>
+				<div class="input-div">
+					<input type="text" name="name" value="{{admin_camera.name}}" class="form-control " autofocus="autofocus" required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-desc">
+				<label for="desc">
+					Beschreibung
+				</label>
+				<div class="input-div">
+					<input type="text" name="desc" value="{{admin_camera.desc}}" class="form-control " required="required">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						<span class="fa fa-check">
+						</span>
+						Save
+					</button>
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
